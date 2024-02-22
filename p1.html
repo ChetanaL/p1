@@ -1,0 +1,82 @@
+ 
+<!DOCTYPE html> 
+<html lang="en" ng-app="nameApp"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Full Name App</title> 
+    <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        } 
+ 
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+        } 
+ 
+        input { 
+            width: 10%; 
+            padding: 8px; 
+            margin-bottom: 10px; 
+            box-sizing: border-box; 
+        } 
+ 
+        button { 
+            padding: 10px; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        } 
+ 
+        button:hover { 
+            background-color: #45a049; 
+        } 
+ 
+        p { 
+            margin-top: 10px; 
+        } 
+    </style> 
+ 
+ 
+ 
+ 
+ 
+</head> 
+<body> 
+    <div ng-controller="NameController"> 
+        <label for="firstName">First Name:</label> 
+        <input type="text" id="firstName" ng-model="firstName" /> 
+ 
+        <label for="lastName">Last Name:</label> 
+        <input type="text" id="lastName" ng-model="lastName" /> 
+ 
+        <button ng-click="displayFullName()">Display Full Name</button> 
+ 
+        <p ng-if="fullName">Full Name: {{ fullName }}</p> 
+    </div> 
+    <script >
+    angular.module('nameApp', []) 
+    .controller('NameController', function ($scope) { 
+     
+    // Default values for full name 
+     
+    $scope.firstName = 'John'; 
+    $scope.lastName = 'Doe'; 
+    $scope.fullName = ''; 
+     
+    // Function to display full name 
+     
+    $scope.displayFullName = function () { 
+    $scope.fullName = $scope.firstName + ' ' + $scope.lastName; 
+    }; 
+    }); 
+    </script> 
+</body> 
+</html> 
+ 
